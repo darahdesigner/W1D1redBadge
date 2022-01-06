@@ -19,7 +19,7 @@ class User {
 }
 let ken: User = new User();
 ken.firstName = "Ken";
-ken.sayHello();
+// ken.sayHello();  <<commented because no longer needed as it was already checked
 
 //Constructors
 
@@ -32,7 +32,7 @@ class Game {
     maker: string
 }
 let battleShip: Game = new Game ('Battleship', 'Hasbro');
-console.log(battleShip);
+// console.log(battleShip);  <<commented because no longer needed as it was already checked
 
 //Inheritance
 
@@ -47,7 +47,26 @@ class Vehicle {
 class Automobile extends Vehicle{
     isSelfDriving: boolean;
 }
-let tesla : Automobile
+let myCar: Automobile = new Automobile();
+
+
+
+myCar.isSelfDriving=false;
+myCar.topSpeed=200;
+myCar.make="Volvo";
+
+// console.log({myCar});  << already checked
+
+class Motorcycle extends Vehicle {
+    easyToDoWheelie: boolean;
+}
+let myMotorcycle: Motorcycle = new Motorcycle();
+myMotorcycle.easyToDoWheelie=false;
+myMotorcycle.topSpeed=250;
+
+// console.log({myMotorcycle})
+
+
 
 class UserObj{
     name: string;
@@ -58,3 +77,49 @@ class Comments {
     text: "dfjkg"; //comment itself
     user: UserObj; //object of UserObj ie {"tony", 10}
 }
+
+//Accessors
+
+// class Store {
+// name:string;
+// city:string;
+
+//     constructor(name:string, city:string){
+//         this.name=name; /*this. pulls instance of higher nested arguments*/
+//         this.city=city;
+//     }
+// }
+// let ikea:Store =new Store ('Ikea', 'Chicago');
+
+// console.log({ikea});
+
+
+//Steamlined approach
+    class Store {
+        constructor(public storeName:string, public city:string){}
+    }
+    let ikea:Store =new Store ('Ikea', 'Chicago');
+    console.log({ikea})
+
+
+
+    class Employee extends Person{
+    private _salary: number; 
+    public badgeId:number;
+    schedule: string[]; /* << If private or public is not listed, it is default public*/
+
+    getSalary():number{
+        return this._salary;
+    }
+    setSalary(newSal:number){
+        this._salary=newSal;
+    }
+    }
+
+    let newEmployee: Employee = new Employee();
+    // newEmployee._salary:  <<'_salary' is private and only accessible within class 'Employee'.
+    newEmployee.badgeId = 46456;
+    newEmployee.schedule=[''];
+
+    newEmployee.setSalary(30000);
+    console.log(newEmployee.getSalary());
