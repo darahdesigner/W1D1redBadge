@@ -50,8 +50,9 @@ console.log(typeof dataFromThirdParty);
 
 //*Void
 //? A void type has no type at all. This is not really seen in variables, but is more common to see in functions that return no value.
+
 function sayHelloToAll(): void {
-    console.log("hello all")
+    console.log("hello y'all")
 }
 sayHelloToAll();
 
@@ -74,3 +75,21 @@ enum Color {
 }
 
 let selected:string = Color[Color.Red];
+
+enum CardType {
+    Ace = 1,
+    Two,
+    Three,
+    Four,
+}
+let cardType:string=CardType[1]; //Prints Ace in 01-types.JS ! file
+console.log(cardType);
+
+//*Union Types
+let x: number | string | boolean;
+x = 49854;
+console.log(x);
+x="Darah";
+console.log(x);
+x=true;
+console.log(x);
